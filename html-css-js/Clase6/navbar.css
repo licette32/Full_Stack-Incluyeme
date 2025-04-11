@@ -1,0 +1,105 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general suave, similar al fondo coral claro */
+body {
+    background-color: #f9d7cf;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo del navbar con fondo degradado o rosado suave */
+.navbar {
+    background: linear-gradient(90deg, #f8b6ac, #fbc3b8);
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(255, 128, 128, 0.2);
+}
+
+/* Marca del sitio con color blanco y elegante */
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #d47c74;
+}
+
+/* Ícono del menú en color suave */
+.menu-icon {
+    display: block;
+    font-size: 26px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Menú desplegable mobile */
+.nav-links {
+    display: none;
+    list-style-type: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #f6b1a8;
+    padding: 24px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links.show {
+    display: flex;
+}
+
+.nav-links li {
+    margin: 12px 0px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffebeb;
+}
+
+/* ----------------------------------------- */
+/* Estilo para pantallas mayores a 500px */
+@media screen and (min-width: 501px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        position: static;
+        box-shadow: none;
+    }
+
+    .nav-links li {
+        margin: 0px 20px;
+    }
+
+    .nav-links a {
+        color: #4d4d4d;
+        font-size: 18px;
+    }
+
+    .nav-links a:hover {
+        color: #f06c6c;
+    }
+}

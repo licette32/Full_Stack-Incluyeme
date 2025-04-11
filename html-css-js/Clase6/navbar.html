@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Indica que este documento es HTML5 -->
+
+<html lang="en">
+<!-- Elemento raíz del documento HTML, con el atributo de idioma en inglés -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Define la codificación de caracteres como UTF-8 (permite acentos, símbolos, etc.) -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que el sitio sea responsive, ajustando su tamaño al dispositivo -->
+
+    <title>Navbar Responsive</title>
+    <!-- Título que aparece en la pestaña del navegador -->
+
+    <link rel="stylesheet" href="navbar.css">
+    <!-- Vincula una hoja de estilos externa llamada 'navbar.css' -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Importa los íconos de Font Awesome desde un CDN -->
+</head>
+
+<body>
+    <!-- Contenido visible en la página -->
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Barra de navegación con clase "navbar" (estilizada desde el CSS) -->
+
+        <div class="brand">Mi sitio</div>
+        <!-- Sección que muestra el nombre o marca del sitio -->
+
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!-- Ícono de menú hamburguesa (visible en dispositivos móviles) -->
+
+        <ul class="nav-links">
+            <!-- Lista de enlaces de navegación -->
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Funcionalidad con JavaScript -->
+    <script>
+        // Cuando se hace clic en el ícono de menú...
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            // ...se alterna la clase "show" en la lista de enlaces.
+            // Esto permite que los enlaces aparezcan o desaparezcan (útil para móviles).
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
