@@ -4,7 +4,7 @@ Repositorio con ejercicios, prácticas y proyecto final desarrollados durante el
 
 ## 🧰 Tecnologías aprendidas
 
-- HTML, CSS, JavaScript
+- HTML, CSS, Boostrap, JavaScript
 - React.js
 - Node.js + Express
 - Bases de datos relacionales
