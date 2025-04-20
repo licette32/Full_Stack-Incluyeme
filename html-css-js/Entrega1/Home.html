@@ -3,39 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NaturaShop - Equipamiento para Camping y Pesca</title>
+    <title>Caña&Carnada</title>
     <link rel="stylesheet" href="home.css">
-    <style>
-        /* Estilos generales */
-       
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">Natura<span>Shop</span></div>
-        <div class="nav-links">
-            <a href="#productos">Productos</a>
-            <a href="#contacto">Contacto</a>
+    <header class="main-header">
+        <div class="logo">
+            <img src="image/logo.png" alt="NaturaShop">
+            <h1 class="logo-text">Caña<span>&</span>Carnada</h1>
         </div>
-    </nav>
-    
-    <!-- Hero Section -->
+
+        <div class="search-bar">
+            <form action="/buscar" method="get">
+                <input type="text" placeholder="Buscar productos...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
+        <div class="header-actions">
+            <a href="#" class="cart-icon" aria-label="Carrito de compras">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </a>
+            <a href="#" class="user-icon" aria-label="Mi cuenta">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+            <ul>
+                <li><a href="#camping"><i class="fas fa-campground"></i> Camping</a></li>
+                <li><a href="#pesca"><i class="fas fa-fish"></i> Pesca</a></li>
+                <li><a href="#kits"><i class="fas fa-box"></i> Kits</a></li>
+                <li><a href="#ofertas"><i class="fas fa-tags"></i> Ofertas</a></li>
+                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section class="hero">
         <div class="hero-content">
             <h1>Equipamiento Profesional para Camping y Pesca</h1>
             <p>Todo lo que necesitas para tus aventuras al aire libre con la mejor calidad y precio</p>
+            <a href="#productos" class="btn-cta">Ver Productos</a>
         </div>
     </section>
-    
-    <!-- Productos -->
+
     <section class="products" id="productos">
-        <h2 class="section-title">Nuestros Productos Destacados</h2>
+        <h2 class="section-title">Nuestros Productos</h2>
         <div class="product-grid">
             <!-- Producto 1 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1525811902-f2342640856e" alt="Tienda de campaña">
+                    <img src="image/tiendacampana1.jpg" alt="Tienda de campaña">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Tienda de Campaña 4 Personas</h3>
@@ -47,7 +68,7 @@
             <!-- Producto 2 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91" alt="Caña de pescar">
+                    <img src="image/canadepescar2.png" alt="Caña de pescar">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Caña de Pescar Spinning</h3>
@@ -59,7 +80,7 @@
             <!-- Producto 3 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4" alt="Saco de dormir">
+                    <img src="image/sacodedormir3.png" alt="Saco de dormir">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Saco de Dormir -10°C</h3>
@@ -71,7 +92,7 @@
             <!-- Producto 4 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1536599424071-0b215a388ba7" alt="Mochila">
+                    <img src="image/mochila4.png" alt="Mochila">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Mochila Trekking 60L</h3>
@@ -83,7 +104,7 @@
             <!-- Producto 5 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1570829460005-c840387bb1ca" alt="Anzuelos">
+                    <img src="image/kitanzuellos5.png" alt="Anzuelos">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Kit de Anzuelos Profesional</h3>
@@ -95,7 +116,7 @@
             <!-- Producto 6 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1600132806608-446eff8437fd" alt="Linterna">
+                    <img src="image/linternafrontal6.png" alt="Linterna">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Linterna Frontal Recargable</h3>
@@ -107,7 +128,7 @@
             <!-- Producto 7 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306" alt="Cocina portátil">
+                    <img src="image/cocinaportatil7.png" alt="Cocina portátil">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Cocina Portátil a Gas</h3>
@@ -119,7 +140,7 @@
             <!-- Producto 8 -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1579963333765-b4129b3250ee" alt="Carrete de pesca">
+                    <img src="image/carretepesca8.png" alt="Carrete de pesca">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">Carrete de Pesca Spinning</h3>
@@ -127,17 +148,17 @@
                     <button class="add-to-cart">Añadir al carrito</button>
                 </div>
             </div>
+            <!-- Añadir sección para kits y ofertas luego si deseas -->
         </div>
     </section>
-    
-    <!-- Footer -->
+
     <footer id="contacto">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Sobre Nosotros</h3>
                 <p>NaturaShop es tu tienda especializada en equipamiento para camping y pesca. Ofrecemos productos de calidad para que disfrutes de la naturaleza con seguridad y comodidad.</p>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Av. Siempre Viva 742, Santiago</p>
@@ -149,7 +170,7 @@
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Horario</h3>
                 <p>Lunes a Viernes: 9:00 - 19:00</p>
@@ -157,9 +178,9 @@
                 <p>Domingo: Cerrado</p>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
-            <p>&copy; 2025 NaturaShop. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Caña&Carnada. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
