@@ -22,7 +22,7 @@ body {
         "logo actions"
         "search search"
         "nav nav";
-    gap: 15px;
+    gap: 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -33,7 +33,9 @@ body {
     grid-area: logo;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     gap: 10px;
+    padding-left: 1rem;
 }
 
 .logo img {
@@ -54,11 +56,14 @@ body {
 .search-bar {
     grid-area: search;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .search-bar form {
     display: flex;
     width: 100%;
+    max-width: 400px;
 }
 
 .search-bar input {
@@ -86,9 +91,10 @@ body {
 .header-actions {
     grid-area: actions;
     display: flex;
-    gap: 15px;
+    gap: 30px;
     justify-content: flex-end;
     align-items: center;
+    padding-right: 1rem;
 }
 
 .header-actions a {
@@ -299,12 +305,65 @@ body {
     background: #E84A5F;
 }
 
+/* SECCIÓN KIT */
+
+
+/* SECCIÓN OFERTAS */
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0.8rem 0;
+}
+
+.current-price {
+    font-size: 1.4rem;
+    color: #FF847C;
+    font-weight: bold;
+}
+
+.original-price {
+    font-size: 1rem;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.savings-message {
+    font-size: 0.9rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #FF847C;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
 /* FOOTER */
 footer {
     background: linear-gradient(135deg, #2A363B 0%, #192f57 100%);
     color: white;
     padding: 3rem 2rem;
     margin-top: 2rem;
+}
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo img {
+    max-width: 180px;
+    height: auto;
 }
 
 .footer-content {
@@ -329,7 +388,7 @@ footer {
     bottom: 0;
     width: 40px;
     height: 3px;
-    background: #4CAF50;
+    background: #FF847C;
 }
 
 .footer-section p, .footer-section a {
@@ -342,7 +401,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #4CAF50;
+    color: #192f57;
 }
 
 .social-icons {
@@ -375,7 +434,7 @@ footer {
     margin-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
-    color: #aaa;
+    color: #99B898;
 }
 
 /* RESPONSIVE EXTRAS */
@@ -399,5 +458,9 @@ footer {
 
     .btn-cta {
         font-size: 1rem;
+    }
+    .footer-logo {
+        text-align: left;
+        margin-bottom: 0;
     }
 }
