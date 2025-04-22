@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulario de ejemplo</title>
+  </head>
+
+  <body>
+    <form  action="/user" method="POST">
+     <div>   
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo">
+      
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Ingresa tu correo electrónico">
+      
+      <label for="ciudad">Ciudad:</label>
+      <select id="ciudad" name="ciudad">
+        <option value="">Selecciona tu ciudad</option>
+        <option value="cdmx">Santiago</option>
+        <option value="gdl">Concepción</option>
+        <option value="mt">Temuco</option>
+      </select>
+      
+      <input type="submit" value="Enviar">
+    </div>
+    </form>
+  </body>
+</html>

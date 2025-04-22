@@ -437,7 +437,7 @@ footer {
     color: #99B898;
 }
 
-/* RESPONSIVE EXTRAS */
+/* RESPONSIVE */
 @media (min-width: 501px) {
     .main-header {
         grid-template-areas: "logo search actions" "nav nav nav";
