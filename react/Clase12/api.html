@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <h1>Lista de usuarios</h1>
+    <ul id="lista-ususarios"></ul>
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(respuesta => respuesta.json())
+        .then(usuarios => {
+            const lista = document.getElementById('lista-ususarios');
+
+            usuarios.forEach(usuario => {
+                const li = document.createElement('li');
+                li.textContent = `${usuario.name}`;
+                lista.appendChild(li)
+            })
+        })
+        .catch(error =>{
+            console.error('Error al obtener usuarios', error)
+        })
+    </script>
+    
+</body>
+</html>

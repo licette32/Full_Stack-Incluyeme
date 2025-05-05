@@ -1,0 +1,78 @@
+#### 🧠 Objetivo:
+Crear un proyecto básico en Node.js con Express que lea productos desde un archivo JSON y los renderice directamente en una vista HTML servida con `fs`.
+
+
+### 🛠️ Actividad paso a paso:
+
+1. Crear una carpeta del proyecto:
+ 
+   mkdir mi-tienda
+   cd mi-tienda
+
+2. Inicializar el proyecto y crear las dependencias:
+ 
+   npm init -y
+   npm install express
+
+3. Crear la siguiente estructura de carpetas y archivos:
+
+mi-tienda/
+│
+├── app.js
+├── data/
+│   └── productos.json
+├── public/
+│   └── index.html
+
+### 🗂️ Archivo: `data/productos.json`
+
+{
+  "productos": [
+    { "id": 1, "nombre": "Zapatilla", "precio": 12000 },
+    { "id": 2, "nombre": "Remera", "precio": 4500 },
+    { "id": 3, "nombre": "Gorra", "precio": 2800 }
+  ]
+}
+
+
+### 🌐 Archivo: `app.js`
+
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+
+// Ruta para servir el HTML
+app.get('/', (req, res) => {
+  const productos = JSON.parse(fs.readFileSync('./data/productos.json', 'utf-8'));
+
+  let cards = productos.productos.map(prod => `
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+      <h2>${prod.nombre}</h2>
+      <p>Precio: $${prod.precio}</p>
+    </div>
+  `).join('');
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8" />
+      <title>Tienda</title>
+    </head>
+    <body>
+      <h1>Productos</h1>
+      <div style="display: flex; flex-wrap: wrap;">${cards}</div>
+    </body>
+    </html>
+  `;
+
+  res.send(html);
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
+

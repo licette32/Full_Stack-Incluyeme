@@ -1,0 +1,7 @@
+{
+    "productos": [
+      { "id": 1, "nombre": "Zapatilla", "precio": 12000 },
+      { "id": 2, "nombre": "Remera", "precio": 4500 },
+      { "id": 3, "nombre": "Gorra", "precio": 2800 }
+    ]
+  }
