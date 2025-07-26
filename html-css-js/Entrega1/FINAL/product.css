@@ -1,0 +1,672 @@
+/* home.css */
+
+/* RESET Y BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === CSS VARIABLES === */
+:root {
+    /* Colores */
+    --primary-dark: #1a2a3a;
+    --secondary-dark: #142850;
+    --accent-green: #4a9b68;
+    --cta-orange: #FFA726;
+    --cta-orange-hover: #fb8c00;
+    --price-red: #FF847C;
+    --price-red-hover: #E84A5F;
+    --text-dark: #333;
+    --text-medium: #666;
+    --text-light: #f5f5f5;
+    --text-lighter: #ddd;
+    --text-gray: #999;
+    --background-light: #f5f5f5;
+    --background-white: #fff;
+    --border-light: #eee;
+    --highlight-yellow: #FECEA8; /* Used for section title underline */
+    --success-green: #4CAF50; /* For savings message */
+    --social-hover-pink: #fea8e8; /* For social icons */
+
+    /* Sombras */
+    --shadow-sm: rgba(0, 0, 0, 0.1);
+    --shadow-md: rgba(0, 0, 0, 0.2);
+    --shadow-lg: rgba(0, 0, 0, 0.3);
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-pill: 25px;
+    --radius-circle: 50%;
+
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.8rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Tamaños de Fuente */
+    --font-size-sm: 0.8rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.4rem;
+    --font-size-xxl: 1.5rem;
+    --font-size-xxxl: 2rem;
+
+    /* Otros */
+    --header-height: 80px;
+    --z-index-header: 1000;
+    --z-index-dropdown: 100;
+    --z-index-badge: 2;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-top: var(--header-height);
+}
+
+/* --- HEADER FIJO Y RESPONSIVO --- */
+.main-header {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-header);
+    box-shadow: 0 3px 10px var(--shadow-md);
+    flex-wrap: wrap;
+}
+
+/* LOGO */
+.logo img {
+    height: 70px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+/* BARRA DE BÚSQUEDA */
+.search-box {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 var(--spacing-md);
+    position: relative;
+}
+.search-box input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-pill);
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+    padding: 0 20px 0 20px; /* Specific padding here might be fine for the icon */
+    padding-right: 45px;
+    box-shadow: 0 2px 5px var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+.search-box input:focus { /* Added focus state for accessibility */
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(74, 155, 104, 0.3);
+}
+.search-box button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-circle);
+    border: none;
+    background: var(--accent-green);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.search-box button:hover {
+    background: darken(var(--accent-green), 10%); /* Example if using preprocessor */
+    opacity: 0.9; /* Simple hover for plain CSS */
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: var(--font-size-xxl);
+    cursor: pointer;
+    padding: var(--spacing-xs) var(--spacing-md);
+}
+
+/* MENÚ DE NAVEGACIÓN */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+.nav-menu > li {
+    list-style: none;
+    position: relative;
+}
+.nav-menu > li > a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-menu > li > a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* === DROPDOWN DE PRODUCTOS (DESKTOP) === */
+.products-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(26, 42, 58, 0.9); /* fondo oscuro semitransparente */
+    backdrop-filter: blur(4px);
+    min-width: 200px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 5px 15px var(--shadow-sm);
+    padding: var(--spacing-xs) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px); /* Adjusted for smoother transition */
+    transition: all 0.3s ease;
+    z-index: var(--z-index-dropdown);
+}
+.dropdown-category {
+    list-style: none;
+}
+
+/* Mostrar al hacer hover */
+.nav-menu > li:hover .products-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Enlaces internos */
+.dropdown-category a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem var(--spacing-md);
+    text-decoration: none;
+}
+
+/* Íconos */
+.dropdown-category i.icono-menu {
+    color: var(--accent-green);
+}
+
+/* Texto */
+.dropdown-category span.texto-menu {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Hover */
+.dropdown-category a:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ICONOS (Carrito y Usuario) */
+.cart-icon, .user-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.cart-icon:hover, .user-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff6b6b; /* Consider adding this to variables if used elsewhere */
+    color: white;
+    width: 20px;
+    height: 20px;
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-circle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.user-cart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-dropdown i {
+    transition: transform 0.3s ease;
+}
+.products-dropdown.active ~ .toggle-dropdown i {
+    transform: rotate(180deg);
+}
+
+/* --- CAROUSEL --- */
+.carousel-item {
+    height: auto;
+    min-height: unset;
+    text-align: center;
+}
+
+.carousel-item img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* --- BOTÓN MEJORADO (General CTA) --- */
+.btn-cta {
+    margin-top: var(--spacing-lg);
+    display: inline-block;
+    background-color: var(--cta-orange);
+    color: white;
+    padding: 0.75rem var(--spacing-xl);
+    border-radius: 50px; /* Specific pill shape */
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--cta-orange-hover);
+    transform: translateY(-2px);
+}
+.btn-cta:active { /* Added active state */
+    transform: translateY(0);
+    opacity: 0.9;
+}
+
+
+/* --- SECCIONES DE PRODUCTOS (Destacados, Kits, Ofertas) --- */
+.section-title {
+    text-align: center;
+    margin: var(--spacing-xl) 0 var(--spacing-lg);
+    font-size: var(--font-size-xxxl);
+    color: #1e3c72; /* Consider adding to variables if reused, e.g., --heading-color */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--highlight-yellow);
+    margin: var(--spacing-xs) auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md) var(--spacing-xl);
+}
+
+.product-card {
+    background: var(--background-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for product badge positioning */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-md);
+}
+
+.product-image {
+    height: 200px;
+    overflow: hidden;
+    background-color: var(--border-light); /* Fallback/placeholder background */
+    display: flex; /* To center potential placeholder text/icon */
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.2rem; /* Keeping specific padding here */
+}
+
+.product-name {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-dark);
+}
+
+.product-price {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: #2A363B; /* Consider adding to variables */
+    margin-bottom: var(--spacing-md);
+}
+
+.add-to-cart {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--price-red);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: var(--price-red-hover);
+}
+.add-to-cart:active { /* Added active state */
+    transform: translateY(1px);
+    opacity: 0.9;
+}
+
+/* SECCIÓN OFERTAS */
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: var(--spacing-sm) 0;
+}
+
+.current-price {
+    font-size: var(--font-size-xl);
+    color: var(--price-red);
+    font-weight: bold;
+}
+
+.original-price {
+    font-size: var(--font-size-base);
+    color: var(--text-gray);
+    text-decoration: line-through;
+}
+
+.savings-message {
+    font-size: var(--font-size-sm);
+    color: var(--success-green);
+    font-weight: bold;
+    margin-bottom: var(--spacing-md);
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--price-red);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem; /* Specific size */
+    font-weight: bold;
+    z-index: var(--z-index-badge);
+}
+
+/* --- FOOTER --- */
+footer {
+    background: linear-gradient(135deg, #2A363B 0%, #192f57 100%); /* Consider adding these colors to variables */
+    color: white;
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.footer-section h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: 0.3rem;
+    color: white; /* Ensure heading color is white in dark footer */
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 70px;
+    height: 2px;
+    background: var(--price-red);
+}
+
+.footer-section p, .footer-section a {
+    color: var(--text-lighter);
+    margin-bottom: 0.6rem;
+    display: block;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: var(--font-size-base);
+}
+
+.footer-section a:hover {
+    color: var(--accent-green); /* Changed to a lighter, more visible color on hover */
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-circle);
+    color: white;
+    font-size: var(--font-size-lg);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: var(--social-hover-pink);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 0.3rem var(--spacing-md);
+    margin-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: var(--font-size-sm);
+    color: #99B898; /* Consider adding to variables if reused */
+    line-height: 1.2;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* --- RESPONSIVE GENERAL MENU --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        font-size: var(--font-size-sm);
+        gap: var(--spacing-xs);
+        padding: var(--spacing-md);
+        display: none;
+        flex-direction: column;
+        background: rgba(26, 42, 58, 0.9);
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        z-index: 999; /* Slightly lower than header but above content */
+        padding: var(--spacing-sm) var(--spacing-md);
+        box-shadow: 0 5px 10px var(--shadow-md);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu > li {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-sm);
+        margin-bottom: 0.3rem;
+    }
+
+    .nav-menu > li > a {
+        justify-content: center;
+        padding: var(--spacing-sm) 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .search-box {
+        order: 3;
+        margin: var(--spacing-md) 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* --- DROPDOWN DE PRODUCTOS (RESPONSIVO) --- */
+@media (max-width: 992px) { /* This media query handles the desktop dropdown becoming static on tablets/laptops */
+    .products-dropdown {
+        position: static;
+        display: none; /* Hidden by default until activated by JS */
+        width: 100%;
+        background: rgba(26, 42, 58, 0.95);
+        backdrop-filter: blur(6px);
+        padding: var(--spacing-xs) var(--spacing-md);
+        margin-top: var(--spacing-xs);
+        opacity: 1; /* Always visible when active */
+        visibility: visible; /* Always visible when active */
+        transform: none; /* No transform needed */
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .products-dropdown.active {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .dropdown-category {
+        list-style: none;
+    }
+
+    .dropdown-category a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: var(--spacing-xs) var(--spacing-md);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: var(--font-size-sm);
+        color: var(--text-light);
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+
+    .dropdown-category a:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .icono-menu {
+        color: var(--accent-green);
+        font-size: var(--font-size-base);
+    }
+
+    .texto-menu {
+        font-weight: 600;
+        font-size: var(--font-size-sm);
+        color: var(--text-light);
+    }
+}
+
+/* --- RESPONSIVE CAROUSEL CAPTION --- */
+@media (max-width: 768px) {
+    .caption-responsive h1 {
+        font-size: var(--font-size-xxl);
+    }
+
+    .caption-responsive p {
+        font-size: var(--font-size-sm);
+    }
+
+    .btn-cta {
+        font-size: 0.95rem; /* Keeping specific size for this breakpoint */
+        padding: var(--spacing-xs) 1.2rem;
+    }
+
+    .caption-responsive {
+        top: 10%;
+    }
+}
